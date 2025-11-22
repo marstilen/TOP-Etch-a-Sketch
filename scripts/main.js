@@ -3,14 +3,17 @@ function changeColor(card) {
  card.style.backgroundColor = "green";
 }
 
+
+function drawBoxes(numberOfBoxes) {
+    
 let gridContainer = document.querySelector("#gridContainer");
+gridContainer.innerHTML="";
 console.log(gridContainer);
-let gridSize = 64;
-for (let i = 0; i < gridSize; i++) {
+for (let i = 0; i < numberOfBoxes; i++) {
     let row = document.createElement("div");
     row.setAttribute("class", "row");
     gridContainer.appendChild(row);
-    for (let i = 0; i < 64; i++) {   
+    for (let i = 0; i < numberOfBoxes; i++) {   
         let card = document.createElement("div");
         card.setAttribute("class", "card")
         card.setAttribute("id", `card${i}`)
@@ -19,4 +22,13 @@ for (let i = 0; i < gridSize; i++) {
             changeColor(e.target);
         });
     }
+}}
+
+function setNumberOfBoxes() {
+    let gridSizeTextBox = document.querySelector("#gridSizeTextBox");
+    if (gridSizeTextBox.value != NaN && gridSizeTextBox.value <= 100) {
+        drawBoxes(gridSizeTextBox.value);
+    }
+    else prompt("please enter a number lower than 100");
+    console.log(gridSizeTextBox.value);
 }
