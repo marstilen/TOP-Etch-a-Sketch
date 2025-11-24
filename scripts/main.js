@@ -12,6 +12,7 @@ console.log(gridContainer);
 for (let i = 0; i < numberOfBoxes; i++) {
     let row = document.createElement("div");
     row.setAttribute("class", "row");
+    row.setAttribute("style", `height: calc(100vw/${numberOfBoxes})`)
     gridContainer.appendChild(row);
     for (let i = 0; i < numberOfBoxes; i++) {   
         let card = document.createElement("div");

@@ -1,7 +1,11 @@
+
 .card{
-    width: 30px;
-    height: 30px; 
+    width: auto;
+    flex-grow: 1;
 }
 .row{
     display: flex;
+}
+#gridContainer{
+    height: 90vw;
 }
