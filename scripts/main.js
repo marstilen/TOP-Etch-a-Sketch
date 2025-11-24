@@ -1,3 +1,14 @@
+function darkenRGBColor(rgbColor) {
+    // let R = `${rgbColor[4]}${rgbColor[5]}${rgbColor[6]}`
+    let newRgbColor = [...rgbColor]
+    newRgbColor = rgbColor.replace(/[^\d,]/g, '').split(',');
+    Number(newRgbColor[0]) - 26 > 0 ? newRgbColor[0] = Number(newRgbColor[0]-26) : newRgbColor[0] = 0;
+    Number(newRgbColor[1]) - 26 > 0 ? newRgbColor[1] = Number(newRgbColor[1]-26) : newRgbColor[1] = 0;
+    Number(newRgbColor[2]) - 26 > 0 ? newRgbColor[2] = Number(newRgbColor[2]-26) : newRgbColor[2] = 0;
+    console.log(newRgbColor);   
+    return `rgb(${newRgbColor})`;
+}
+
 function getRandomColor() {
   var letters = '0123456789ABCDEF';
   var color = '#';
@@ -12,6 +23,7 @@ function changeColor(card) {
         card.style.backgroundColor = getRandomColor();
     }
     else{
+        card.style.backgroundColor = darkenRGBColor(card.style.backgroundColor)
     }
 }
 
